@@ -262,7 +262,7 @@ $(document).ready(function(){
     var max={};
     var divizor=165;
     if(Context.Constants.width>1000&&Context.Constants.width<1400){
-        divizor=150;
+        divizor=120;
     }
         
     max.x=Context.Constants.width/divizor;

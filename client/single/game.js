@@ -141,11 +141,15 @@ $(document).ready(function(){
     Context.ThreeJSVariables.camera.position.z = 8//aspectRatio+5;//aspectRatio;
     Context.ThreeJSVariables.camera.position.x = 0//aspectRatio;
             
-            
-    var max={};
-    max.x=Context.Constants.width/165;
+              var max={};
+    var divizor=165;
+    if(Context.Constants.width>1000&&Context.Constants.width<1400){
+        divizor=120;
+    }
+        
+    max.x=Context.Constants.width/divizor;
     max.z=aspectRatio/2;
-    max.y=Context.Constants.height/165;            
+    max.y=Context.Constants.height/divizor;          
    
             
     //EXECUTES 60 TIMES A SECOND
