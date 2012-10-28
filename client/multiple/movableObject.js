@@ -75,8 +75,11 @@ var MovableObject=function(Context,object,level){
                             Context.GameVariables.movingObjects.splice(ind,1);
                                     
                           
-                            if(Context.GameVariables.movingObjects.length==1)
+                            if(Context.GameVariables.movingObjects.length==1) 
+                            {
                                 Context.GlobalVariables.freeze=true;
+                                alert("You have won!");
+                            }
                             break;
                         }
                     }   

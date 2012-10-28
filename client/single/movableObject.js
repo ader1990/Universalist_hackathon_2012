@@ -5,6 +5,7 @@ var MovableObject=function(Context,object,level){
     var self=this;
     self.eatingBuffer=0;
     self.object=object;
+    self.ID = parseInt(Math.random() * 1000);
     self.object.castShadow=true;
     self.freeze=false;
                 
@@ -33,10 +34,11 @@ var MovableObject=function(Context,object,level){
                 
     self.increaseBuffer=function(level){
         var otherObject=self;
-        otherObject.buffer+=level*3/2;
+        otherObject.buffer+=level;
         //console.log(level);
         if(otherObject.buffer>otherObject.bufferOverflow){
             otherObject.level++;
+            //console.log("inc");
             var epsilonScale=0.2;
             otherObject.buffer=0;
             otherObject.object.scale.x+=epsilonScale;                                    
@@ -64,19 +66,23 @@ var MovableObject=function(Context,object,level){
                         
                 var ind=Context.GameVariables.movingObjects.indexOf(otherObject);  
                 var index=0;
-                for(index=0;index<Context.ThreeJSVariables.scene.__webglObjects.length;index++){
-                    if(Context.ThreeJSVariables.scene.__webglObjects[index].object==otherObject.object){                                       
-                        Context.ThreeJSVariables.scene.remove(otherObject);
-                        Context.ThreeJSVariables.scene.__removeObject(otherObject);
-                        Context.ThreeJSVariables.scene.__webglObjects.splice(index,1);            
-                        Context.GameVariables.movingObjects.splice(ind,1);
+                if(Context.ThreeJSVariables.scene.__webglObjects)
+                    for(index=0;index<Context.ThreeJSVariables.scene.__webglObjects.length;index++){
+                        if(Context.ThreeJSVariables.scene.__webglObjects[index].object==otherObject.object){                                       
+                            Context.ThreeJSVariables.scene.remove(otherObject);
+                            Context.ThreeJSVariables.scene.__removeObject(otherObject);
+                            Context.ThreeJSVariables.scene.__webglObjects.splice(index,1);            
+                            Context.GameVariables.movingObjects.splice(ind,1);
                                     
                           
-                        if(Context.GameVariables.movingObjects.length==1)
-                            Context.GlobalVariables.freeze=true;
-                        break;
-                    }
-                }   
+                            if(Context.GameVariables.movingObjects.length==1) 
+                            {
+                                Context.GlobalVariables.freeze=true;
+                                alert("You have won!");
+                            }
+                            break;
+                        }
+                    }   
             }                    
                             
         }
