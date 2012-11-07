@@ -17,9 +17,9 @@ The server code for the dataserver resides in server/app.js .
 
 
 About the game:
-	It is an arcade game where you can control a planet-like shere using the keyboards(Left, Right, Up and Down).
+	It is an arcade game where you can control a planet-like sphere using the keyboards(Left, Right, Up and Down).
 	The goal of the game is to "eat" all the smaller-then-you objects and keep away from being eaten by the bigger objects.
 	Everytime you eat an object you grow up and you will be able to eat larger objects.
-	The multiPlayer game consists, at the moment, of two player room where the players can play against each other.
-	The synchronization is based on WebSockets and NodeJS powered WebServer.
-	The game ends when you get eaten or when you are the one left.
+	The multiPlayer game consists, at the moment, of a two player room where the players can play against each other.
+	The synchronization is based on WebSockets and a NodeJS powered WebServer.
+	The game ends when you get eaten or when you are the only one left.
