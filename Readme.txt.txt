@@ -1,6 +1,6 @@
 TO start with, this web application was developed on top of HTML5, WebGL, WebSockets.
 On the client side we used Three.js, JQuery, Socket.io.
-On the server side we used NodeJS as the primary dataserver and NGinX or Apache as our file/images server.
+On the server side we used NodeJS as the primary dataserver and NGinX or Apache as our basic file server.
 
 The code is structured in two folders:
 		- ClientSide code("client")
